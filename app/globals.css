@@ -1,0 +1,124 @@
+@import "tailwindcss";
+@config "../tailwind.config.ts";
+
+:root {
+  --background: #0d0101;
+  --foreground: #FFF7F7;
+  --signal-red: #EE0000;
+  --kontour-orange: #FF5100;
+  --bright-orange: #FF6600;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #0d0101;
+  color: #FFF7F7;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-montserrat), Montserrat, sans-serif;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: #EE0000;
+  color: #FFF7F7;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0d0101;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #EE0000, #FF5100);
+  border-radius: 9999px;
+}
+
+/* Typography Display Styles */
+.text-display {
+  font-family: var(--font-montserrat), Montserrat, sans-serif;
+  letter-spacing: -0.04em;
+}
+
+.text-editorial-headline {
+  font-family: var(--font-montserrat), Montserrat, sans-serif;
+  letter-spacing: -0.045em;
+  line-height: 0.94;
+}
+
+/* Watermark Text Styles - Crisp, High Luminosity */
+.watermark-text-hero {
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: #FFF7F7;
+  line-height: 0.78;
+  user-select: none;
+}
+
+.watermark-text-fill {
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  color: #FFF7F7;
+  line-height: 0.8;
+  user-select: none;
+}
+
+/* Glass Card Surfaces with subtle luminosity */
+.glass-surface {
+  background: rgba(24, 8, 8, 0.75);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.glass-surface-subtle {
+  background: rgba(24, 8, 8, 0.5);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Ambient Radial Glow Gradients - Vibrant, Luminous & Warm */
+.glow-hero-vibrant {
+  background: radial-gradient(circle at 10% 15%, #FF5100 0%, #EE0000 35%, rgba(238, 0, 0, 0.3) 60%, transparent 80%);
+  filter: blur(110px);
+}
+
+.glow-market-vibrant {
+  background: radial-gradient(circle at 90% 40%, #FF5100 0%, #EE0000 40%, rgba(255, 81, 0, 0.25) 65%, transparent 80%);
+  filter: blur(120px);
+}
+
+.glow-bottom-vibrant {
+  background: radial-gradient(circle at 50% 65%, #FF5100 0%, #EE0000 45%, rgba(255, 81, 0, 0.3) 65%, transparent 80%);
+  filter: blur(110px);
+}
+
+/* Film Grain Overlay */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  opacity: 0.025;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

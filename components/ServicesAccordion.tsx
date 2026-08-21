@@ -8,6 +8,24 @@ import PillButton from "./PillButton";
 import Reveal from "./Reveal";
 import { BrandCapsuleGlyph } from "./BrandGlyph";
 
+const accordionItemVariants = {
+  hidden: {
+    opacity: 0,
+    y: 85,
+    scale: 0.95,
+  },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 1.15,
+      delay: (i % 2) * 0.08,
+      ease: [0.16, 1, 0.3, 1] as const,
+    },
+  }),
+};
+
 export default function ServicesAccordion() {
   // Default open to [02] VISUAL IDENTITY (index 1) as in reference Image 3
   const [activeIndex, setActiveIndex] = useState<number | null>(1);
@@ -44,7 +62,15 @@ export default function ServicesAccordion() {
           const isActive = activeIndex === index;
 
           return (
-            <div key={service.index} className="border-b border-white/15">
+            <motion.div
+              key={service.index}
+              custom={index}
+              variants={accordionItemVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2, margin: "0px 0px -50px 0px" }}
+              className="border-b border-white/15 origin-bottom"
+            >
               <button
                 onClick={() => toggleAccordion(index)}
                 aria-expanded={isActive}
@@ -138,7 +164,7 @@ export default function ServicesAccordion() {
                   </motion.div>
                 )}
               </AnimatePresence>
-            </div>
+            </motion.div>
           );
         })}
       </div>

@@ -41,20 +41,20 @@ export default function PhilosophySection() {
           <div className="flex flex-col gap-5 lg:col-span-4 z-30 pb-4">
             {/* Widget 1: Identity Scope */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="rounded-3xl border border-white/15 bg-[rgba(24,8,8,0.85)] p-6 backdrop-blur-2xl shadow-xl max-w-sm"
+              initial={{ opacity: 0, y: 70, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, amount: 0.2, margin: "0px 0px -40px 0px" }}
+              transition={{ duration: 1.15, ease: [0.16, 1, 0.3, 1] }}
+              className="rounded-3xl border border-white/15 bg-[rgba(24,8,8,0.85)] p-6 backdrop-blur-2xl shadow-xl max-w-sm origin-bottom"
             >
-              <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#BABABA]">
+              <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[#BABABA]">
                 Identity Scope:
               </p>
               <p className="text-display mt-2 text-2xl font-light text-[#FFF7F7] md:text-3xl">
                 $18,000
               </p>
 
-              <div className="mt-5 flex items-center justify-between text-[11px] font-medium text-[#BABABA]">
+              <div className="mt-5 flex items-center justify-between text-[12px] font-medium text-[#BABABA]">
                 <span>Progress</span>
                 <span className="text-[#FF5100] font-bold">70%</span>
               </div>
@@ -68,9 +68,8 @@ export default function PhilosophySection() {
                     whileInView={{ scaleY: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.02, duration: 0.35 }}
-                    className={`h-full w-full origin-bottom rounded-xs ${
-                      i < 15 ? "bg-[#FF5100]" : "bg-white/20"
-                    }`}
+                    className={`h-full w-full origin-bottom rounded-xs ${i < 15 ? "bg-[#FF5100]" : "bg-white/20"
+                      }`}
                   />
                 ))}
               </div>
@@ -78,13 +77,13 @@ export default function PhilosophySection() {
 
             {/* Widget 2: Campaign Scope */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="rounded-3xl border border-white/15 bg-[rgba(24,8,8,0.85)] p-6 backdrop-blur-2xl shadow-xl max-w-sm"
+              initial={{ opacity: 0, y: 70, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, amount: 0.2, margin: "0px 0px -40px 0px" }}
+              transition={{ duration: 1.15, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
+              className="rounded-3xl border border-white/15 bg-[rgba(24,8,8,0.85)] p-6 backdrop-blur-2xl shadow-xl max-w-sm origin-bottom"
             >
-              <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#BABABA]">
+              <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[#BABABA]">
                 Campaign Scope:
               </p>
               <p className="text-display mt-2 text-2xl font-light text-[#FFF7F7] md:text-3xl">
@@ -104,13 +103,12 @@ export default function PhilosophySection() {
                       duration: 0.5,
                       ease: [0.16, 1, 0.3, 1],
                     }}
-                    className={`w-full rounded-xs transition-all ${
-                      idx % 3 === 0
-                        ? "bg-[#FF5100]"
-                        : idx % 2 === 0
+                    className={`w-full rounded-xs transition-all ${idx % 3 === 0
+                      ? "bg-[#FF5100]"
+                      : idx % 2 === 0
                         ? "bg-[#EE0000]"
                         : "bg-white/30"
-                    }`}
+                      }`}
                   />
                 ))}
               </div>
@@ -121,27 +119,33 @@ export default function PhilosophySection() {
           <div className="hidden lg:col-span-4 lg:block" />
 
           {/* Right Column: Philosophy Copy & CTA */}
-          <div className="flex flex-col gap-6 lg:col-span-4 z-30 pb-4 max-w-md">
-            <p className="text-xs md:text-sm leading-relaxed text-[#D4D4D4] font-normal">
+          <motion.div
+            initial={{ opacity: 0, y: 70, scale: 0.95 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, amount: 0.2, margin: "0px 0px -40px 0px" }}
+            transition={{ duration: 1.15, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-col gap-6 lg:col-span-4 z-30 pb-4 max-w-md origin-bottom"
+          >
+            <p className="text-[16px] leading-relaxed text-white font-normal">
               A brand becomes truly memorable when people can understand it
               quickly and recognize it without extra effort. Clarity creates the
               first strong connection.
             </p>
-            <p className="text-xs md:text-sm leading-relaxed text-[#D4D4D4] font-normal">
+            <p className="text-[16px] leading-relaxed text-white font-normal">
               Consistency turns that connection into lasting trust. When the same
               visual logic appears across every brand touchpoint, the brand starts
               to feel familiar.
             </p>
-            <p className="text-xs md:text-sm leading-relaxed text-[#D4D4D4] font-normal">
+            <p className="text-[16px] leading-relaxed text-white font-normal">
               Recognition is not a random effect. It is built through form,
               contrast, repetition and a clear system that keeps the brand
               present in people&apos;s minds.
             </p>
 
             <div className="pt-2">
-              <PillButton label="Start a Project" href="/contact" variant="primary" />
+              <PillButton label="Start a Project" href="/contact" variant="primary" size="lg" />
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 
@@ -174,7 +178,7 @@ export default function PhilosophySection() {
         >
           <div className="relative h-full w-full">
             <Image
-              src="/images/philosophy-female.png"
+              src="/images/anikur-photo-cutout.png"
               alt="Female silhouette profile with warm rim lighting"
               fill
               sizes="(max-width: 768px) 100vw, 480px"

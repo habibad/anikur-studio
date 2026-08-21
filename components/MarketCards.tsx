@@ -53,7 +53,7 @@ export default function MarketCards() {
             <br />
             THAT LASTS
           </h2>
-          <p className="mt-6 max-w-md text-xs md:text-sm leading-relaxed text-[#BABABA] font-normal">
+          <p className="mt-6 max-w-lg text-[16px] leading-relaxed text-white font-normal">
             KONTOUR STUDIOS is a marketing agency and creative studio building
             clear brand systems for modern market presence.
           </p>
@@ -85,25 +85,30 @@ export default function MarketCards() {
             </div>
           </Reveal>
 
-          {/* 3 Stat Cards Horizontal Grid */}
+          {/* 3 Stat Cards Horizontal Grid with Smooth Entrance Motion */}
           <div className="lg:col-span-9">
-            <RevealStagger className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
               {STATS.map((stat, i) => (
                 <motion.div
                   key={stat.title}
-                  variants={staggerItem}
+                  initial={{ opacity: 0, y: 80, scale: 0.95 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true, amount: 0.2, margin: "0px 0px -50px 0px" }}
+                  transition={{
+                    duration: 1.15,
+                    delay: i * 0.12,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
                   animate={{
-                    opacity: i === currentIndex ? 1 : 0.85,
                     scale: i === currentIndex ? 1.02 : 0.98,
                   }}
-                  transition={{ duration: 0.4 }}
                   onClick={() => setCurrentIndex(i)}
-                  className="cursor-pointer"
+                  className="cursor-pointer origin-bottom"
                 >
                   <StatCard stat={stat} isActive={i === currentIndex} />
                 </motion.div>
               ))}
-            </RevealStagger>
+            </div>
           </div>
         </div>
       </div>
@@ -135,7 +140,7 @@ function StatCard({
           <p className="text-base font-bold tracking-tight text-[#100101]">
             {stat.title}
           </p>
-          <p className="mt-2 text-xs leading-relaxed text-black/80 font-normal">
+          <p className="mt-2 text-[16px] leading-relaxed text-black/80 font-normal">
             {stat.description}
           </p>
         </div>
@@ -167,7 +172,7 @@ function StatCard({
           <p className="text-base font-bold tracking-tight text-[#FFF7F7]">
             {stat.title}
           </p>
-          <p className="mt-2 text-xs leading-relaxed text-[#BABABA]">
+          <p className="mt-2 text-[16px] leading-relaxed text-white font-normal">
             {stat.description}
           </p>
         </div>
@@ -198,7 +203,7 @@ function StatCard({
         <p className="text-base font-bold tracking-tight text-[#FFF7F7]">
           {stat.title}
         </p>
-        <p className="mt-2 text-xs leading-relaxed text-[#FFF7F7]/90 font-normal">
+        <p className="mt-2 text-[16px] leading-relaxed text-white font-normal">
           {stat.description}
         </p>
       </div>

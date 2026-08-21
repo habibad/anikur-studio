@@ -48,7 +48,7 @@ export default function ServicesAccordion() {
           </h2>
         </Reveal>
 
-        <Reveal delay={0.1} className="max-w-xs text-xs md:text-sm leading-relaxed text-[#BABABA] lg:text-right font-normal">
+        <Reveal delay={0.1} className="max-w-xs text-[16px] leading-relaxed text-white lg:text-right font-normal">
           <p>
             Strategy, identity, content and campaigns connected into one clear
             structure, identity, content and campaigns
@@ -154,7 +154,7 @@ export default function ServicesAccordion() {
                         {service.paragraphs.map((para, pIdx) => (
                           <p
                             key={pIdx}
-                            className="max-w-2xl text-xs md:text-sm leading-relaxed text-[#D4D4D4] font-normal"
+                            className="max-w-2xl text-[16px] leading-relaxed text-white font-normal"
                           >
                             {para}
                           </p>

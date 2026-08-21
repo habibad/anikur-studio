@@ -101,7 +101,7 @@ export default function Hero() {
       </motion.div>
 
       {/* Layer 3: Main Foreground Grid Content (Exact 1:1 Pixel-Perfect Alignment matching reference) */}
-      <div className="relative z-30 mx-auto w-full max-w-[1800px] h-full px-6 md:px-12 lg:px-16 pt-24 md:pt-28 lg:pt-32 pb-6 flex flex-col justify-start">
+      <div className="relative z-30 mx-auto w-full max-w-[1800px] h-full px-6 md:px-12 lg:px-16 pt-28 md:pt-30 lg:pt-40 pb-6 flex flex-col justify-start">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -119,7 +119,7 @@ export default function Hero() {
 
             <motion.h1
               variants={itemVariants}
-              className="text-[48px] sm:text-[60px] md:text-[72px] lg:text-[78px] xl:text-[88px] font-extrabold leading-[0.91] tracking-[-0.038em] text-[#FFF7F7]"
+              className="text-[48px] sm:text-[60px] md:text-[72px] lg:text-[78px] xl:text-[88px] font-semibold leading-[0.91] tracking-[-0.038em] text-[#FFF7F7]"
             >
               Clarity first.
               <br />
@@ -130,7 +130,7 @@ export default function Hero() {
 
             <motion.p
               variants={itemVariants}
-              className="mt-5 max-w-[340px] text-[13.5px] sm:text-[14.5px] font-normal leading-[1.45] text-[#BABABA]"
+              className="mt-5 max-w-[380px] text-[16px] font-normal leading-[1.5] text-white"
             >
               Strategy, identity and communication shaped into one clear brand
               system.
@@ -150,19 +150,19 @@ export default function Hero() {
 
           {/* RIGHT COLUMN: Floating Recognition Widget & 100% / 360° Metrics */}
           <div className="lg:col-span-5 flex flex-col items-start lg:items-end justify-start w-full">
-            <div className="w-full max-w-[440px] flex flex-col items-start">
+            <div className="w-full max-w-[460px] flex flex-col items-start">
               {/* Floating Recognition Widget */}
               <motion.div
                 variants={itemVariants}
                 className="w-full flex items-start gap-4 sm:gap-5"
               >
                 {/* Thumbnail image: man in black hoodie against vibrant red studio background */}
-                <div className="relative h-[105px] w-[105px] sm:h-[120px] sm:w-[120px] shrink-0 overflow-hidden rounded-2xl shadow-2xl">
+                <div className="relative h-[150px] w-[150px] sm:h-[150px] sm:w-[150px] shrink-0 overflow-hidden rounded-2xl shadow-2xl">
                   <Image
                     src="/images/hero-thumb-man.png"
                     alt="Recognition thumbnail"
                     fill
-                    sizes="120px"
+                    sizes="200px"
                     className="object-cover object-center"
                   />
                 </div>
@@ -175,10 +175,10 @@ export default function Hero() {
                     </span>
                   </div>
 
-                  <h3 className="text-[16px] sm:text-[17px] font-bold tracking-tight text-[#FFF7F7]">
+                  <h3 className="text-[17px] sm:text-[18px] font-bold tracking-tight text-[#FFF7F7]">
                     {currentSlide.title}
                   </h3>
-                  <p className="mt-1 text-[11.5px] sm:text-[12.5px] leading-[1.38] text-[#BABABA] font-normal max-w-[225px]">
+                  <p className="mt-1 text-[14px] sm:text-[16px] leading-[1.4] text-white font-normal max-w-[250px]">
                     {currentSlide.description}
                   </p>
 
@@ -221,7 +221,7 @@ export default function Hero() {
                   <p className="text-[52px] sm:text-[62px] md:text-[72px] font-light leading-none tracking-tight text-[#FFF7F7]">
                     100%
                   </p>
-                  <p className="mt-3 text-[12.5px] sm:text-[13px] leading-[1.4] text-[#BABABA] max-w-[160px] font-normal">
+                  <p className="mt-3 text-[14px] sm:text-[16px] leading-[1.45] text-white max-w-[185px] font-normal">
                     No random visuals. Only clear systems built for recognition.
                   </p>
                 </motion.div>
@@ -230,7 +230,7 @@ export default function Hero() {
                   <p className="text-[52px] sm:text-[62px] md:text-[72px] font-light leading-none tracking-tight text-[#FFF7F7]">
                     360°
                   </p>
-                  <p className="mt-3 text-[12.5px] sm:text-[13px] leading-[1.4] text-[#BABABA] max-w-[160px] font-normal">
+                  <p className="mt-3 text-[14px] sm:text-[16px] leading-[1.45] text-white max-w-[185px] font-normal">
                     Full brand presence. From strategy and identity to launch.
                   </p>
                 </motion.div>

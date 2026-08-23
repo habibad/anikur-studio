@@ -5,8 +5,8 @@ import PageHero from "@/components/PageHero";
 import TeamGrid from "@/components/TeamGrid";
 
 export const metadata: Metadata = {
-  title: "Team — Kontour Studios",
-  description: "The strategists, designers and directors behind Kontour Studios.",
+  title: "Team — anikur Studios",
+  description: "The strategists, designers and directors behind anikur Studios.",
 };
 
 export default function TeamPage() {

@@ -5,8 +5,8 @@ import PageHero from "@/components/PageHero";
 import FaqAccordion from "@/components/FaqAccordion";
 
 export const metadata: Metadata = {
-  title: "FAQ — Kontour Studios",
-  description: "Answers to common questions about working with Kontour Studios.",
+  title: "FAQ — anikur Studios",
+  description: "Answers to common questions about working with anikur Studios.",
 };
 
 export default function FaqPage() {

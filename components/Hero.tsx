@@ -1,27 +1,31 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { useState } from "react";
 import PillButton from "./PillButton";
 
+const STUDIO_EASE = [0.16, 1, 0.3, 1] as const;
+
 const containerVariants = {
-  hidden: {},
+  hidden: { opacity: 0 },
   visible: {
+    opacity: 1,
     transition: {
       staggerChildren: 0.1,
-      delayChildren: 0.05,
+      delayChildren: 0.25,
     },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 18 },
+  hidden: { opacity: 0, y: 24, filter: "blur(6px)" },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] as const },
+    filter: "blur(0px)",
+    transition: { duration: 0.9, ease: STUDIO_EASE },
   },
 };
 
@@ -45,34 +49,37 @@ export default function Hero() {
 
   return (
     <section className="relative h-screen min-h-[720px] max-h-[1080px] w-full overflow-hidden bg-[#0d0101] flex flex-col justify-between select-none">
-      {/* Top-Left Ambient Liquid Glow matching reference image */}
-      <div
+      {/* 1. Top-Left Ambient Liquid Glow */}
+      <motion.div
         aria-hidden="true"
-        className="pointer-events-none absolute -left-28 -top-28 h-[750px] w-[750px] md:h-[900px] md:w-[900px] rounded-full opacity-95 blur-[110px] z-0"
+        initial={{ opacity: 0, scale: 0.85 }}
+        animate={{ opacity: 0.9, scale: 1 }}
+        transition={{ duration: 1.6, ease: STUDIO_EASE }}
+        className="pointer-events-none absolute -left-44 -top-44 h-[700px] w-[700px] md:h-[830px] md:w-[830px] rounded-full opacity-90 blur-[110px] z-0"
         style={{
           background:
-            "radial-gradient(circle at 20% 20%, #FF5100 0%, #EE0000 38%, rgba(238, 0, 0, 0.15) 65%, transparent 85%)",
+            "radial-gradient(circle at 20% 20%, #FF4500 0%, #EE0000 35%, rgba(238, 0, 0, 0.14) 60%, transparent 80%)",
         }}
       />
 
-      {/* Center Spotlight Glow Focus behind Model & ANIKUR text (Vibrant Studio Spotlight) */}
+      {/* 2. Center-Bottom Spotlight Glow */}
       <motion.div
         aria-hidden="true"
-        initial={{ opacity: 0, scale: 0.8, y: 50 }}
+        initial={{ opacity: 0, scale: 0.75, y: 60 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ duration: 1.2, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
-        className="pointer-events-none absolute left-1/2 bottom-[8%] -translate-x-1/2 h-[700px] w-[800px] md:h-[850px] md:w-[950px] rounded-full blur-[100px] z-0"
+        transition={{ duration: 1.5, delay: 0.2, ease: STUDIO_EASE }}
+        className="pointer-events-none absolute left-1/2 bottom-[-22%] -translate-x-1/2 h-[550px] w-[650px] md:h-[650px] md:w-[800px] rounded-full blur-[95px] z-0"
         style={{
           background:
-            "radial-gradient(circle at 50% 50%, #FF5100 0%, #EE0000 38%, rgba(238, 0, 0, 0.25) 62%, transparent 82%)",
+            "radial-gradient(circle at 50% 65%, #FF5100 0%, #EE0000 42%, rgba(238, 0, 0, 0.3) 65%, transparent 85%)",
         }}
       />
 
-      {/* Layer 1: Massive Solid Bold Watermark: ANIKUR (Rises from below as the final reveal under the image) */}
+      {/* Layer 1: Massive Solid Bold Watermark: ANIKUR (Rises from below) */}
       <motion.div
-        initial={{ opacity: 0, y: 90 }}
-        animate={{ opacity: 0.95, y: 0 }}
-        transition={{ duration: 1.2, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        initial={{ opacity: 0, y: 110, scale: 0.97 }}
+        animate={{ opacity: 0.95, y: 0, scale: 1 }}
+        transition={{ duration: 1.35, delay: 0.35, ease: STUDIO_EASE }}
         className="absolute inset-x-0 bottom-0 z-10 flex justify-center text-center pointer-events-none select-none overflow-hidden w-full"
       >
         <span className="block font-black uppercase text-[22vw] sm:text-[20.5vw] md:text-[19.5vw] lg:text-[18.8vw] leading-[0.76] tracking-tighter text-[#FFF7F7]">
@@ -80,11 +87,11 @@ export default function Hero() {
         </span>
       </motion.div>
 
-      {/* Layer 2: Center Model Cutout (Scaled up to 86vh for full cinematic presence) */}
+      {/* Layer 2: Center Model Cutout */}
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+        initial={{ opacity: 0, y: 55, scale: 0.98 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 1.15, delay: 0.1, ease: STUDIO_EASE }}
         className="absolute inset-x-0 bottom-0 z-20 mx-auto flex h-[82vh] sm:h-[85vh] md:h-[88vh] max-h-[940px] min-h-[580px] w-full max-w-[780px] md:max-w-[880px] lg:max-w-[960px] xl:max-w-[1040px] items-end justify-center pointer-events-none"
       >
         <div className="relative h-full w-full">
@@ -93,6 +100,7 @@ export default function Hero() {
             alt="Editorial portrait of Anikur"
             fill
             priority
+            loading="eager"
             unoptimized
             sizes="(max-width: 1024px) 100vw, 1040px"
             className="object-contain object-bottom"
@@ -100,7 +108,7 @@ export default function Hero() {
         </div>
       </motion.div>
 
-      {/* Layer 3: Main Foreground Grid Content (Exact 1:1 Pixel-Perfect Alignment matching reference) */}
+      {/* Layer 3: Main Foreground Grid Content */}
       <div className="relative z-30 mx-auto w-full max-w-[1800px] h-full px-6 md:px-12 lg:px-16 pt-28 md:pt-30 lg:pt-40 pb-6 flex flex-col justify-start">
         <motion.div
           variants={containerVariants}
@@ -108,7 +116,7 @@ export default function Hero() {
           animate="visible"
           className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4 items-start w-full"
         >
-          {/* LEFT COLUMN: Eyebrow, Large Bold Headline, Subtitle, and Prominent CTA Buttons */}
+          {/* LEFT COLUMN: Eyebrow, Large Bold Headline, Subtitle, and CTA Buttons */}
           <div className="lg:col-span-5 flex flex-col items-start text-left justify-start">
             <motion.p
               variants={itemVariants}
@@ -145,10 +153,10 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Center Spacer Column (Clear window for center portrait model's head & torso) */}
+          {/* Center Spacer Column */}
           <div className="hidden lg:col-span-2 lg:block pointer-events-none" />
 
-          {/* RIGHT COLUMN: Floating Recognition Widget & 100% / 360° Metrics */}
+          {/* RIGHT COLUMN: Floating Recognition Widget & Metrics */}
           <div className="lg:col-span-5 flex flex-col items-start lg:items-end justify-start w-full">
             <div className="w-full max-w-[460px] flex flex-col items-start">
               {/* Floating Recognition Widget */}
@@ -156,7 +164,7 @@ export default function Hero() {
                 variants={itemVariants}
                 className="w-full flex items-start gap-4 sm:gap-5"
               >
-                {/* Thumbnail image: man in black hoodie against vibrant red studio background */}
+                {/* Thumbnail image */}
                 <div className="relative h-[150px] w-[150px] sm:h-[150px] sm:w-[150px] shrink-0 overflow-hidden rounded-2xl shadow-2xl">
                   <Image
                     src="/images/hero-thumb-man.png"
@@ -175,41 +183,55 @@ export default function Hero() {
                     </span>
                   </div>
 
-                  <h3 className="text-[17px] sm:text-[18px] font-bold tracking-tight text-[#FFF7F7]">
-                    {currentSlide.title}
-                  </h3>
-                  <p className="mt-1 text-[14px] sm:text-[16px] leading-[1.4] text-white font-normal max-w-[250px]">
-                    {currentSlide.description}
-                  </p>
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={activeSlide}
+                      initial={{ opacity: 0, x: 12 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -12 }}
+                      transition={{ duration: 0.35, ease: STUDIO_EASE }}
+                    >
+                      <h3 className="text-[17px] sm:text-[18px] font-bold tracking-tight text-[#FFF7F7]">
+                        {currentSlide.title}
+                      </h3>
+                      <p className="mt-1 text-[14px] sm:text-[16px] leading-[1.4] text-white font-normal max-w-[250px]">
+                        {currentSlide.description}
+                      </p>
+                    </motion.div>
+                  </AnimatePresence>
 
                   <div className="mt-4 flex items-center justify-between gap-3">
                     {/* Active progress bar indicator */}
                     <div className="h-[2.5px] w-22 overflow-hidden rounded-full bg-white/20">
                       <motion.div
                         animate={{ width: currentSlide.progress }}
-                        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                        transition={{ duration: 0.45, ease: STUDIO_EASE }}
                         className="h-full rounded-full bg-[#EE0000]"
                       />
                     </div>
 
-                    {/* Navigation buttons: Left (White) & Right (Orange) */}
+                    {/* Navigation buttons */}
                     <div className="flex items-center gap-2">
-                      <button
+                      <motion.button
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.92 }}
                         onClick={() =>
                           setActiveSlide((s) => (s > 0 ? s - 1 : slides.length - 1))
                         }
                         aria-label="Previous slide"
-                        className="flex h-7.5 w-7.5 items-center justify-center rounded-full bg-[#FFF7F7] text-[#100101] transition-transform duration-200 hover:scale-110 active:scale-95 shadow-sm"
+                        className="flex h-7.5 w-7.5 items-center justify-center rounded-full bg-[#FFF7F7] text-[#100101] transition-shadow shadow-sm"
                       >
                         <ArrowLeft className="h-3.5 w-3.5" strokeWidth={2.5} />
-                      </button>
-                      <button
+                      </motion.button>
+                      <motion.button
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.92 }}
                         onClick={() => setActiveSlide((s) => s + 1)}
                         aria-label="Next slide"
-                        className="flex h-7.5 w-7.5 items-center justify-center rounded-full bg-[#FF5100] text-[#FFF7F7] transition-transform duration-200 hover:scale-110 active:scale-95 shadow-sm shadow-[#FF5100]/40"
+                        className="flex h-7.5 w-7.5 items-center justify-center rounded-full bg-[#FF5100] text-[#FFF7F7] transition-shadow shadow-sm shadow-[#FF5100]/40"
                       >
                         <ArrowRight className="h-3.5 w-3.5" strokeWidth={2.5} />
-                      </button>
+                      </motion.button>
                     </div>
                   </div>
                 </div>

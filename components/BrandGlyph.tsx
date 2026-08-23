@@ -10,7 +10,7 @@ interface BrandCapsuleGlyphProps {
 
 /**
  * BrandCapsuleGlyph renders the signature pill/capsule shaped glyph
- * replacing the 'D' character in KONTOUR STUDIOS brand typography.
+ * replacing the 'D' character in anikur STUDIOS brand typography.
  */
 export function BrandCapsuleGlyph({
   className = "",
@@ -33,9 +33,9 @@ export function BrandCapsuleGlyph({
 }
 
 /**
- * Stacked 2-line official Kontour Studios logo with signature brand capsule
+ * Stacked 2-line official anikur Studios logo with signature brand capsule
  */
-export function KontourLogo({
+export function AnikurLogo({
   className = "",
   size = "md",
 }: {
@@ -72,3 +72,7 @@ export function KontourLogo({
     </Link>
   );
 }
+
+export const KontourLogo = AnikurLogo;
+export const anikurLogo = AnikurLogo;
+

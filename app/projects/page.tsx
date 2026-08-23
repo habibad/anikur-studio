@@ -6,9 +6,9 @@ import PillButton from "@/components/PillButton";
 import ProjectsList from "@/components/ProjectsList";
 
 export const metadata: Metadata = {
-  title: "Projects — Kontour Studios",
+  title: "Projects — anikur Studios",
   description:
-    "Brand systems, visual identities and campaigns delivered by Kontour Studios.",
+    "Brand systems, visual identities and campaigns delivered by anikur Studios.",
 };
 
 export default function ProjectsPage() {

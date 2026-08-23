@@ -5,7 +5,7 @@ import PageHero from "@/components/PageHero";
 import ServicesAccordion from "@/components/ServicesAccordion";
 
 export const metadata: Metadata = {
-  title: "Services — Kontour Studios",
+  title: "Services — anikur Studios",
   description:
     "Brand strategy, visual identity, social media marketing and digital campaigns, connected into one clear brand system.",
 };

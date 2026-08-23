@@ -5,9 +5,9 @@ import PageHero from "@/components/PageHero";
 import PhilosophySection from "@/components/PhilosophySection";
 
 export const metadata: Metadata = {
-  title: "Philosophy — Kontour Studios",
+  title: "Philosophy — anikur Studios",
   description:
-    "Clear brands stay in memory. The thinking behind how Kontour Studios builds brand systems.",
+    "Clear brands stay in memory. The thinking behind how anikur Studios builds brand systems.",
 };
 
 export default function PhilosophyPage() {

@@ -1,6 +1,6 @@
-# Kontour Studios
+# anikur Studios
 
-A pixel-matched, animated Next.js 16 (App Router) rebuild of the Kontour Studios
+A pixel-matched, animated Next.js 16 (App Router) rebuild of the anikur Studios
 marketing site — TypeScript, Tailwind CSS v4, and Framer Motion.
 
 ## Getting started
@@ -35,7 +35,7 @@ app/
   contact/page.tsx
 components/
   Navbar.tsx              Fixed nav, active-route indicator, mobile drawer
-  Hero.tsx                 Hero section incl. KONTOUR watermark + recognition card
+  Hero.tsx                 Hero section incl. anikur watermark + recognition card
   ServicesAccordion.tsx   Animated [01]-[04] accordion (shared by Home + /services)
   MarketCards.tsx          100% / 50+ / 97% stat carousel (shared by Home + /about)
   PhilosophySection.tsx   STUDIOS watermark, progress + equalizer cards
@@ -59,7 +59,7 @@ tailwind.config.ts          Design tokens: colors, fonts, glow keyframes
 |---|---|
 | Background | `#100101` / `#0B0404` |
 | Signal Red | `#EE0000` |
-| Kontour Orange | `#FF5100` |
+| anikur Orange | `#FF5100` |
 | Soft White | `#FFF7F7` |
 | Studio Gray | `#BABABA` |
 | Font | Montserrat (300-800) |

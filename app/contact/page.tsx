@@ -6,8 +6,8 @@ import ContactForm from "@/components/ContactForm";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "Contact — Kontour Studios",
-  description: "Start a project with Kontour Studios.",
+  title: "Contact — anikur Studios",
+  description: "Start a project with anikur Studios.",
 };
 
 export default function ContactPage() {
@@ -25,7 +25,7 @@ export default function ContactPage() {
           <Reveal className="flex flex-col gap-10">
             <div>
               <p className="text-xs uppercase tracking-[0.15em] text-studio-gray">Email</p>
-              <p className="text-display mt-2 text-xl text-soft-white">hello@kontourstudios.com</p>
+              <p className="text-display mt-2 text-xl text-soft-white">hello@anikurstudios.com</p>
             </div>
             <div>
               <p className="text-xs uppercase tracking-[0.15em] text-studio-gray">Phone</p>
